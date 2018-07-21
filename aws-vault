@@ -1,0 +1,37 @@
+#aws/credentials
+[default]
+aws_a_id =
+aws_s_key =
+
+[aws-user-id]
+aws_a_id =
+aws_s_key =
+mfa_serial = arn:aws:iam:::mfa/user
+
+[dev-qa]
+source_profile = aws-user-id
+mfa_serial = arn:aws:iam:::mfa/user
+role_arn = arn:aws:iam:::role/role-to-assume
+
+[dev-prod]
+source_profile = aws-user-id
+mfa_serial = arn:aws:iam:::mfa/user
+role_arn = arn:aws:iam:::role/role-to-assume
+
+#AWS-VAULT_CONFIG
+#eg. aws-vault exec dev-qa --
+[default]
+region = eu-west-3
+
+[profile aws-user-id]
+mfa_serial = arn:aws:iam:::mfa/user
+
+[profile dev-qa]
+source_profile = aws-user-id
+mfa_serial = arn:aws:iam:::mfa/user
+role_arn = arn:aws:iam:::role/role-to-assume
+
+[profile dev-prod]
+source_profile = aws-user-id
+mfa_serial = arn:aws:iam:::mfa/mbow
+role_arn = arn:aws:iam:::role/role-to-assume
