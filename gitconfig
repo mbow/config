@@ -1,0 +1,36 @@
+# This is Git's per-user configuration file.
+[user]
+	name = mbow
+	email = michael.bow88@gmail.com
+[url "git@github.com:"]
+	insteadOf = http://github.com/
+	insteadOf = https://github.com/
+	insteadOf = git://github.com/
+	insteadOf = git+ssh://github.com/
+[core]
+	editor = vim
+[diff]
+	tool = bc3
+	compationHeuristic = true
+[merge]
+	tool = bc3
+[mergetool]
+	bc3 = trustExitCode
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[alias]
+	br = branch --all
+	ci = commit --verbose
+	cl = clone
+	co = checkout
+	d = diff --ignore-all-space
+	ds = diff --staged --ignore-all-space
+	fall = fetch --all --tags --prune
+	refs = for-each-ref --sort= --format='%(refname:short)	%(authorname)	%(committerdate:relative)' refs/remotes/
+	s = status
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f
+[init]
+	templatedir = ~/.git-templates
